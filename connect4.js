@@ -1,8 +1,8 @@
 let gameField = new Array();
 let board = document.getElementById("game-table");
-let currentCol;
-let currentRow;
-let currentPlayer;
+let currCol;
+let currRow;
+let currPlayer;
 const player1 = 1;
 const player2 = 2;
 
@@ -16,9 +16,9 @@ newgame();
 */
 function prepareField(){
   gameField = new Array();
-  for(let rpw=0; row<6; row++){
+  for(let row = 0; row < 6; row++){
     gameField[row] = new Array();
-    for(let col=0; col<7; col++){
+    for(let col = 0; col < 7; col++){
       gameField[row].push(0);
     }
   }
@@ -27,9 +27,9 @@ function prepareField(){
 /*initialize the board and starts a new game.
   randNum = randommize who goes first
 */
-function newgame(){
+function newGame(){
   prepareField();
-  let randNum = (Math.floor(Math.random()*2)+1);
+  let randNum = (Math.floor(Math.random() * 2) + 1);
   placeDisc(randNum);
 }
 
