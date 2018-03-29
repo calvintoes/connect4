@@ -2,73 +2,101 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel = "stylesheet" type = "text/css" href = "css/game.css">
+<link href="https://fonts.googleapis.com/css?family=Cuprum|Sigmar+One" rel="stylesheet">
     <title>CONNECT4!</title>
   </head>
 
   <style media="screen">
-    body{
-      background:#eff;
-    }
-
-    h1{
-      text-align:center;
-      margin-bottom:10px;
-    }
-
-    p.info{
-      text-align:center;
-      width:500px;
-      margin:0 auto;
-      font-size:18px;
-      font-weight:bold;
-      color:#e16;
-      margin-bottom:20px;
-      }
-
-    game-base{
-      width:640px;
-      margin:0 auto;
-      padding-top:60px;
-      }
-
-    #game-table{
-      width: 700px;
-      height: 700px;
-      margin: 0 auto;
-      background:url("http://connect4.gamesolver.org/image?pos=null") 0 0 no-repeat;
-      position:relative;
-      }
-
-    .disc{
-      position:absolute;
-      z-index:-1;
-      top:-55px;
-      left:14px;
-      width:46px;
-      height:46px;
-      border-radius:46px;
-      transition:all .3s;
-    }
-
-    .disc.red{
-      background:#d96666;
-    }
-
-    .disc.yellow{
-      background:#ffeb79;
-    }
-
   </style>
   <body>
-    <h1>Connect Four Game</h1>
-    <p class="info">Connect 4 is two player game.
-    This version is two player <b>ONLY</b> so you cannot play against the computer.</p>
+    <h1>Connect Four</h1>
+    <p class="info">Connect4 is a <strong>two player</strong> game, no AI involved. The winner is determined by whomever gets <strong>4 pieces in a row</strong> (horizontally, vertically, diagonally).</p>
+
+    <div class = "player1">Player 1
+      <button onclick="changeColor(p1Color, colorPalette1, currIndex1)">New Color</button>
+    </div>
+
+    <div class = "player2">Player 2
+      <button onclick="changeColor(p2Color, colorPalette2, currIndex2)">New Color</button>
+    </div>
+
   <div id="game-base">
     <div id="game-table">
 
     </div>
   </div><!-- end base -->
 
-  <script src="connect4.js" charset="utf-8"></script>
+  <script src="connect4.js" charset="utf-8">
+
+let gameField = new Array();
+let board = document.getElementById("game-table");
+let currCol;
+let currRow;
+let currPlayer;
+const player1 = 1;
+const player2 = 2;
+
+newgame();
+
+/*function that creates the 6x7 board
+2D array, each index with a number in it representing the 'value' of that position
+0 - empty
+1 - player1
+2 - player2
+*/
+function prepareField(){
+  gameField = new Array();
+
+  for(let row = 0; row < 6; row++){
+    gameField[row] = new Array();
+
+    for(let col = 0; col < 7; col++){
+      gameField[row].push(0);
+    }
+  }
+}
+
+/*initialize the board and starts a new game.
+  randNum = randommize who goes first
+*/
+function newGame(){
+  prepareField();
+  let randNum = (Math.floor(Math.random() * 2) + 1);
+  placeDisc(randNum);
+}
+
+//function that places the disc in its respective position but doesn't display on screen
+function placeDisc(row,col){
+  // TODO:
+}
+
+//function that creates the disc
+function makeDisc(player){
+  // TODO:
+}
+
+let p1Color = document.querySelector("div.player1");
+let p2Color = document.querySelector("div.player2");
+
+//default color values for the player
+let colorPalette1 = [#ff9999, #CC0000, #800000];
+let colorPalette2 = ["#99e6ff", "#0099cc", "#006080"];
+
+let currIndex1 = colorPalette1.indexOf(p1Color.style.color)
+let currIndex2 = colorPalette1.indexOf(p1Color.style.color)
+/*
+Sets the color of the chips and name
+*/
+function changeColor(player, array, index) {
+  if (index < 3)
+    index++;
+  else
+    index = 0;
+
+  player.style.color = array[index];
+}
+
+  </script>
   </body>
 </html>
