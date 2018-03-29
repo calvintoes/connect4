@@ -1,8 +1,8 @@
 let gameField = new Array();
 let board = document.getElementById("game-table");
-let currCol;
-let currRow;
-let currPlayer;
+let currentCol;
+let currentRow;
+let currentPlayer;
 const player1 = 1;
 const player2 = 2;
 
@@ -16,9 +16,9 @@ newgame();
 */
 function prepareField(){
   gameField = new Array();
-  for(let row = 0; row < 6; row++){
+  for(let rpw=0; row<6; row++){
     gameField[row] = new Array();
-    for(let col = 0; col < 7; col++){
+    for(let col=0; col<7; col++){
       gameField[row].push(0);
     }
   }
@@ -27,18 +27,26 @@ function prepareField(){
 /*initialize the board and starts a new game.
   randNum = randommize who goes first
 */
-function newGame(){
+function newgame(){
   prepareField();
-  let randNum = (Math.floor(Math.random() * 2) + 1);
+  let randNum = (Math.floor(Math.random()*2)+1);
   placeDisc(randNum);
 }
 
 //function that places the disc in its respective position but doesn't display on screen
-function placeDisc(row,col){
+function placeDisc(player,col){
   // TODO:
+  for(let row = 0; row < 6; row++){
+    if(gameField[row][col] == 0){
+      gameField[row][col] = player;
+    }
+
+  }
 }
 
 //function that creates the disc
-function makeDisc(player){
+function Disc(player){
   // TODO:
 }
+
+function
