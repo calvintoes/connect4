@@ -11,14 +11,15 @@
   </style>
   <body>
     <h1>Connect Four</h1>
+
     <p class="info">Connect4 is a <strong>two player</strong> game, no AI involved. The winner is determined by whomever gets <strong>4 pieces in a row</strong> (horizontally, vertically, diagonally).</p>
 
     <div class = "player1">Player 1
-      <button onclick="changeColor(p1Color, colorPalette1, currIndex1)">New Color</button>
+      <button onclick="document.querySelector('div.player1').style.color = changeColor(colorPalette2)">New Color</button>
     </div>
 
     <div class = "player2">Player 2
-      <button onclick="changeColor(p2Color, colorPalette2, currIndex2)">New Color</button>
+      <button onclick="document.querySelector('div.player2').style.color = changeColor(colorPalette1)">New Color</button>
     </div>
 
   <div id="game-base">
@@ -27,7 +28,7 @@
     </div>
   </div><!-- end base -->
 
-  <script src="connect4.js" charset="utf-8">
+  <script>
 
 let gameField = new Array();
 let board = document.getElementById("game-table");
@@ -37,7 +38,7 @@ let currPlayer;
 const player1 = 1;
 const player2 = 2;
 
-newgame();
+newGame();
 
 /*function that creates the 6x7 board
 2D array, each index with a number in it representing the 'value' of that position
@@ -80,21 +81,21 @@ let p1Color = document.querySelector("div.player1");
 let p2Color = document.querySelector("div.player2");
 
 //default color values for the player
-let colorPalette1 = [#ff9999, #CC0000, #800000];
+let colorPalette1 = ["#ff9999", "#CC0000", "#800000"];
 let colorPalette2 = ["#99e6ff", "#0099cc", "#006080"];
 
-let currIndex1 = colorPalette1.indexOf(p1Color.style.color)
-let currIndex2 = colorPalette1.indexOf(p1Color.style.color)
+let index = 0;
 /*
 Sets the color of the chips and name
 */
-function changeColor(player, array, index) {
+function changeColor(array) {
   if (index < 3)
     index++;
+
   else
     index = 0;
 
-  player.style.color = array[index];
+	return array[index]
 }
 
   </script>
