@@ -1,0 +1,110 @@
+    body{
+      font-family: 'Cuprum', sans-serif;
+      background:#eff;
+    }
+
+    h1{
+      font-family: 'Sigmar One', cursive;
+      text-align: center;
+      margin-bottom:10px;
+    }
+
+    p.info{
+      text-align:center;
+      width:500px;
+      margin:0 auto;
+      font-size:18px;
+      font-weight:bold;
+      color: #000066;
+      }
+
+    .chip {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: auto;
+    }
+
+    div.player1, div.player2 {
+      font-size: 30px;
+      padding: 10px;
+      margin: 10px;
+      /*border-style: solid;*/
+      width: 10%;
+      transform: translateY(200px);
+    }
+
+    div.player1 {
+      padding-left: 52px;
+      margin-left: 10px;
+      color: #0099cc;
+    }
+
+    div.player2 {
+      transform: translateY(-10px);
+      margin-right: 10px;
+      padding-right: 52px;
+      float: right;
+      text-align: right;
+      color: #cc0000;
+    }
+
+    button {
+      border-radius: 8px;
+      background-color: #555555;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    #startGame {
+      background-color: #AAAAAA;
+      margin: 0 auto;
+      padding: 10px 24px;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+    #restartGame {
+      visibility: hidden;
+      background-color: #BBBBBB;
+      margin: 0 auto;
+      padding: 10px 24px;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+  #gridContainer{
+    background-color: black;
+    top:250px;
+    left:335px;
+    padding:0;
+    margin: 0 auto;
+    display:inline-block;
+    position: absolute;
+}
+    span.cell{
+    height:75px;
+    width:75px;
+    border:1px solid black; /* actual width & height is 25px because of border */
+    background-color: #FFF;
+    padding:0;
+    margin:0;
+    position:absolute;
+    border-radius: 50%;
+  }
+
+  /* Get rid of the cell border when it is selected */
+  span.cellSelected{
+    height:75px;
+    width:75px;
+    background-color: red;
+    padding:0;
+    margin:0;
+    position:absolute;
+    border-radius: 50%
+  }
