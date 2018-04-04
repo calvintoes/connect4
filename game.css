@@ -16,21 +16,6 @@
       font-size:18px;
       font-weight:bold;
       color: #000066;
-      margin-bottom:0px;
-      }
-
-    game-base{
-      width:640px;
-      margin:0 auto;
-      padding-top:30px;
-      }
-
-    #game-table{
-      width: 700px;
-      height: 700px;
-      margin: 0 auto;
-      background:url("http://connect4.gamesolver.org/image?pos=null") 0 0 no-repeat;
-      position:relative;
       }
 
     .disc{
@@ -44,12 +29,20 @@
       transition:all .3s;
     }
 
-    .disc.red{
-      background:#d96666;
+    .chip {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: auto;
     }
 
-    .disc.yellow{
-      background:#ffeb79;
+    .disc.p1{
+      background: #d96666;
+    }
+
+    .disc.p2 {
+      background: #ffeb79;
     }
 
     div.player1, div.player2 {
@@ -58,7 +51,7 @@
       margin: 10px;
       border-style: solid;
       width: 10%;
-      transform: translateY(300px);
+      transform: translateY(200px);
     }
 
     div.player1 {
@@ -68,10 +61,68 @@
     }
 
     div.player2 {
-      transform: translateY(190px);
+      transform: translateY(-10px);
       margin-right: 10px;
       padding-right: 52px;
       float: right;
       text-align: right;
       color: #cc0000;
     }
+
+    button {
+      background-color: #555555;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    #startGame {
+      background-color: #AAAAAA;
+      margin: 0 auto;
+      padding: 10px 24px;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+    #restartGame {
+      visibility: hidden;
+      background-color: #BBBBBB;
+      margin: 0 auto;
+      padding: 10px 24px;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+  #gridContainer{
+    background-color: black;
+    top:250px;
+    left:335px;
+    padding:0;
+    margin: 0 auto;
+    display:inline-block;
+    position: absolute;
+}
+    span.cell{
+    height:75px;
+    width:75px;
+    border:1px solid black; /* actual width & height is 25px because of border */
+    background-color: #FFF;
+    padding:0;
+    margin:0;
+    position:absolute;
+    border-radius: 50%;
+  }
+  
+  /* Get rid of the cell border when it is selected */
+  span.cellSelected{
+    height:75px;
+    width:75px;
+    background-color: red;
+    padding:0;
+    margin:0;
+    position:absolute;
+  }
+  
