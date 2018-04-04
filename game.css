@@ -17,18 +17,7 @@
       font-weight:bold;
       color: #000066;
       }
-
-    .disc{
-      position:absolute;
-      z-index:-1;
-      top:-55px;
-      left:14px;
-      width:46px;
-      height:46px;
-      border-radius:46px;
-      transition:all .3s;
-    }
-
+      
     .chip {
       height: 90px;
       width: 90px;
@@ -37,19 +26,11 @@
       margin: auto;
     }
 
-    .disc.p1{
-      background: #d96666;
-    }
-
-    .disc.p2 {
-      background: #ffeb79;
-    }
-
     div.player1, div.player2 {
       font-size: 30px;
       padding: 10px;
       margin: 10px;
-      border-style: solid;
+      /*border-style: solid;*/
       width: 10%;
       transform: translateY(200px);
     }
@@ -70,6 +51,7 @@
     }
 
     button {
+      border-radius: 8px;
       background-color: #555555;
       border: none;
       color: white;

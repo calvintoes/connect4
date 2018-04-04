@@ -27,12 +27,13 @@
 
   <script>
 
-let gameField = new Array();
-let currCol;
-let currRow;
 let currPlayer;
+
 const player1 = 1;
 const player2 = 2;
+let player1Color = "#99e6ff";
+let player2Color = "#ff9999";
+
 const numCols = 7;
 const numRows = 6;
 const cellWidth = 85;
@@ -57,21 +58,34 @@ const cells = [];
 		}
 	}
 
-newGame();
-
-/*initialize the board and starts a new game.
-  randNum = randommize who goes first
-*/
-function newGame(){
-  let randNum = (Math.floor(Math.random() * 2) + 1);
-  placeDisc(randNum);
-}
-
 function startGame() {
+	let chip = document.querySelectorAll('span.chip');
+
+	//Decides who goes first by random
+	let randNum = (Math.floor(Math.random() * 2) + 1);
+
+	if (randNum == 1) {
+		currPlayer = 1;
+		chip[0].style.visibility = "visible";
+		chip[1].style.visibility = "hidden";
+	}
+
+	else { 
+		currPlayer = 2;
+		chip[0].style.visibility = "hidden";
+		chip[1].style.visibility = "visible";
+	}
+
 	document.getElementById("p1ColorChange").style.visibility = "hidden"; //hides the buttons to change colors, so that the players cant change colors during the game
   	document.getElementById("p2ColorChange").style.visibility = "hidden";
   	document.getElementById("restartGame").style.visibility = "visible";
   	document.getElementById("startGame").style.visibility = "hidden";
+
+	let p1Color = document.querySelector("div.player1");
+	let p2Color = document.querySelector("div.player2");
+
+  	player1Color = p1Color.style.color;
+  	player2Color = p2Color.style.color;
 }
 
 function restartGame() {
@@ -79,16 +93,11 @@ function restartGame() {
   	document.getElementById("p2ColorChange").style.visibility = "visible";
     document.getElementById("restartGame").style.visibility = "hidden";
   	document.getElementById("startGame").style.visibility = "visible";
-}
 
-//function that places the disc in its respective position but doesn't display on screen
-function placeDisc(row,col){
-  // TODO:
-}
+    let chip = document.querySelectorAll('span.chip');
 
-//function that creates the disc
-function makeDisc(player){
-  // TODO:
+	chip[0].style.visibility = "hidden";
+	chip[1].style.visibility = "hidden";
 }
 
 let p1 = document.querySelector("#p1ColorChange");
@@ -125,6 +134,43 @@ function changeChipColor (p) {
 
 p1.addEventListener("click", () => {changeChipColor(1); }, false);
 p2.addEventListener("click", () => {changeChipColor(2); }, false);
+
+container.onclick = placeChip;
+
+function placeChip (e) {
+	let rect = container.getBoundingClientRect();
+	let mouseX = e.clientX - rect.left;
+	let mouseY = e.clientY - rect.top;
+	let columnWidth = cellWidth + cellSpacing;
+	let col = Math.floor(mouseX/columnWidth);
+	let row = Math.floor(mouseY/columnWidth);
+	let selectedCell = cells[row][col];
+	selectedCell.className = 'cellSelected';
+
+	if (currPlayer == 1) {
+		selectedCell.style.backgroundColor = player1Color;
+		currPlayer = 2;
+	}
+
+	else {
+		selectedCell.style.backgroundColor = player2Color;
+		currPlayer = 1;
+	}
+}
+
+/*
+Checks to see if the column has other pieces
+*/
+function check(col) {
+	//recursive?
+
+	//go through the column go down the row
+	//check to see if the cell.style.backgroundColor != white;
+		//move down, check again
+
+	//go down until a) no more spaces in the column b) current cell is only one free
+
+}
 
   </script>
   </body>
