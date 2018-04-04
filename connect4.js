@@ -35,6 +35,7 @@ const cells = [];
 		}
 	}
 //--------------------End Board-------------------------
+
 function startGame() {
 	//Decides who goes first by random
 	let randNum = (Math.floor(Math.random() * 2) + 1);
@@ -58,6 +59,8 @@ function startGame() {
 
 	player1startColor = p1changedColor.style.color;
 	player2startColor = p2changedColor.style.color;
+
+	document.getElementById("gridContainer").style.pointerEvents = "auto";
 }
 
 function restartGame() {
@@ -70,11 +73,13 @@ function restartGame() {
 	chip[1].style.visibility = "hidden";
 
 	let cells = document.getElementsByClassName("cellSelected");
-	//debugger;
-	for (let el of cells){
-		el.style.backgroundColor = "#FFF";
-		el.className = "cell";
+	// debugger;
+	while(cells.length){
+		cells[0].className = "cell";
 	}
+	document.getElementById("gridContainer").style.pointerEvents = "none";
+
+
 }
 
 //-----------------------------COLOR Options------------------------------
@@ -95,15 +100,21 @@ function changeColor(array) {
 
 //changes the chip color depending on which button was pressed
 function changeChipColor (p) {
-	if (p == 1)
+	if (p == 1){
+		chip[0].style.visibility = "visible";
 		chip[0].style.backgroundColor = p1changedColor.style.color;
+	}
 
-	else if (p == 2)
+	else if (p == 2){
+		chip[1].style.visibility = "visible";
 		chip[1].style.backgroundColor = p2changedColor.style.color;
+	}
+
 }
 //-------------------------------------------------------------------------
 
 //add events to the buttons when clicked
+
 p1Button.addEventListener("click", () => {changeChipColor(1); }, false);
 p2Button.addEventListener("click", () => {changeChipColor(2); }, false);
 

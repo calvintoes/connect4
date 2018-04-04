@@ -18,13 +18,18 @@
       color: #000066;
       }
 
+
+
     .chip {
+      visibility: hidden;
       height: 90px;
       width: 90px;
       border-radius: 50%;
       display: inline-block;
       margin: auto;
     }
+
+
 
     div.player1, div.player2 {
       font-size: 30px;
@@ -62,11 +67,13 @@
     }
 
     #startGame {
+      visibility: visible;
       background-color: #AAAAAA;
       margin: 0 auto;
       padding: 10px 24px;
       font-size: 16px;
       border-radius: 12px;
+
     }
 
     #restartGame {
@@ -81,30 +88,31 @@
   #gridContainer{
     background-color: black;
     top:250px;
-    left:335px;
+    left:30%;
     padding:0;
     margin: 0 auto;
     display:inline-block;
     position: absolute;
+    pointer-events:none;
 }
-    span.cell{
-    height:75px;
-    width:75px;
-    border:1px solid black; /* actual width & height is 25px because of border */
-    background-color: #FFF;
-    padding:0;
-    margin:0;
-    position:absolute;
-    border-radius: 50%;
-  }
 
   /* Get rid of the cell border when it is selected */
-  span.cellSelected{
+  .cellSelected{
     height:75px;
     width:75px;
-    background-color: red;
     padding:0;
     margin:0;
     position:absolute;
     border-radius: 50%
   }
+
+  .cell{
+  height:75px;
+  width:75px;
+  border:1px solid black; /* actual width & height is 25px because of border */
+  background-color: #FFF !important;
+  padding:0;
+  margin:0;
+  position:absolute;
+  border-radius: 50%;
+}
