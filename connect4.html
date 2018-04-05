@@ -12,22 +12,24 @@
   </style>
   <body>
     <h1>Connect Four</h1>
+      <h3>Made by Calvin To and Ilana Leva</h3>
 
     <p class="info">Connect4 is a <strong>two player</strong> game, no AI involved. Select a color and
       click 'start game' to begin. The winner is determined by whomever gets
-      <strong>4 pieces in a row</strong> (horizontally, vertically, diagonally).
-
+      <strong>4 pieces in a row</strong> (horizontally, vertically, diagonally).      Documentation can be found <a href = "https://github.com/ilana105/connect4/blob/master/P2_Documentation.md">here</a>.
       <br>
       <button id = "startGame" onclick = "startGame()">Start Game</button>
       <button id = "restartGame" onclick = "restartGame()">Play Again</button></p>
 
-    <div class = "player1"><span class = "chip " ></span><br>Player 1
+    <div class = "player1"><span class = "chip"></span><br>Player 1
+      <br>
       <button id = "p1ColorChange" onclick="document.querySelector('div.player1').style.color = changeColor(colorPalette2)">Select Color</button>
     </div>
 
     <div id = "gridContainer"></div>
 
-    <div class = "player2"><span class = "chip" ></span><br>Player 2
+    <div class = "player2"><span class = "chip"></span><br>Player 2
+      <br>
       <button id = "p2ColorChange" onclick="document.querySelector('div.player2').style.color = changeColor(colorPalette1)">Select Color</button>
     </div>
 

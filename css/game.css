@@ -1,12 +1,12 @@
-    body{
+body{
       font-family: 'Cuprum', sans-serif;
       background:#eff;
     }
 
-    h1{
+    h1, h3{
       font-family: 'Sigmar One', cursive;
       text-align: center;
-      margin-bottom:10px;
+      margin-bottom: 5px;
     }
 
     p.info{
@@ -18,8 +18,6 @@
       color: #000066;
       }
 
-
-
     .chip {
       visibility: hidden;
       height: 90px;
@@ -28,8 +26,6 @@
       display: inline-block;
       margin: auto;
     }
-
-
 
     div.player1, div.player2 {
       font-size: 30px;
@@ -73,7 +69,6 @@
       padding: 10px 24px;
       font-size: 16px;
       border-radius: 12px;
-
     }
 
     #restartGame {
@@ -87,32 +82,35 @@
 
   #gridContainer{
     background-color: black;
-    top:250px;
+    top:270px;
     left:30%;
     padding:0;
     margin: 0 auto;
     display:inline-block;
     position: absolute;
-    pointer-events:none;
-}
+    pointer-events: none;
+  }
 
   /* Get rid of the cell border when it is selected */
   .cellSelected{
     height:75px;
     width:75px;
+    background-color: white;
     padding:0;
     margin:0;
     position:absolute;
-    border-radius: 50%
+    border-radius: 50%;
+    color: #eff;
   }
 
-  .cell{
-  height:75px;
-  width:75px;
-  border:1px solid black; /* actual width & height is 25px because of border */
-  background-color: #FFF !important;
-  padding:0;
-  margin:0;
-  position:absolute;
-  border-radius: 50%;
-}
+      .cell{
+    height:75px;
+    width:75px;
+    border:1px solid black; /* actual width & height is 25px because of border */
+    background-color: #FFF !important;
+    padding:0;
+    margin:0;
+    position:absolute;
+    border-radius: 50%;
+    color: #eff;
+  }
