@@ -162,7 +162,7 @@ function placeChip (e) {
 		let selectedCell = cells[newRow][col];
 
 		selectedCell.className = 'cellSelected';
-		console.log(`${col},${row}`);
+		//console.log(`${col},${row}`);
 
 		if (currPlayer == 1) {
 			selectedCell.innerHTML = "1";
@@ -183,9 +183,6 @@ function placeChip (e) {
 					alert("Player 1 won!");
 					restartGame();
 				}
-				//if	(winDiagonally2(row,row,col,col,playerId) == 4){
-				//	alert("Player 1 won!");
-				//}
 			}
 
 
@@ -208,12 +205,7 @@ function placeChip (e) {
 					alert("Player 2 won!");
 					restartGame();
 				}
-				//if	(winDiagonally2(row,row,col,col,playerId) == 4){
-					//alert("Player 2 won!");
-				//}
 			}
-
-
 
 		if (winVertically(row,col) == 1){
 			alert("Player 1 won!");
@@ -270,29 +262,10 @@ function winHorizontally(row, col, col2, playerId) {
 	return winHorizontally(row, col-1, -1,playerId) + 1 + winHorizontally(row, -1,col+1,playerId);
 	}
 }
-/*
-function winDiagonally(row, row2, col, col2, playerId) {
-	//debugger;
-	if ((col < 0 || col > 6 ) || (row < 0 || row > 5 )|| (cells[row][col].innerHTML != playerId))
-		return 0;
-	else
-	return winDiagonally(row-1, -1, col-1, -1,playerId) + 1 + winDiagonally(-1, row2+1, -1,col+1,playerId);
-}
 
-function winDiagonally2(row, row2, col, col2, playerId) {
-	//debugger;
-	if ((col < 0 || col > 6 ) || (row < 0 || row > 5 ) || (cells[row][col].innerHTML != playerId))
-		return 0;
-
-	else
-		return winDiagonally2(-1, row2+1, -1,col-1,playerId) + 1 + winDiagonally2(row-1, -1, col+1, -1,playerId);
-
-}
-*/
 function winDiagonally(){
 	for(let col = 0; col <= 3; col++){
 		for(let row = 3; row < 5; row++){
-			//debugger;
 			if((cells[row][col].innerHTML != 0) &&
 					(cells[row][col].innerHTML == cells[row-1][col+1].innerHTML) &&
 				 	(cells[row][col].innerHTML == cells[row-2][col+2].innerHTML) &&
@@ -318,7 +291,7 @@ function winDiagonally(){
 }
 
 
-
+//------------------------------CHECK Win Diagonally------------------------------------------
 function outOfBottomBound(row, col){
   return (row>5) || (col>5);
 }
@@ -355,3 +328,4 @@ function verticalWin(playerTurn, row, col){
 function horizontalWin(playerTurn, row, col){
   return ((recurseSlots(playerTurn, row, col+1, 0, 1)+1+recurseSlots(playerTurn, row, col-1, 0, -1))==4) ? true: false;
 }
+//----------------------------------------------------------------------------------
