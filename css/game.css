@@ -101,6 +101,7 @@ body{
       position:absolute;
       border-radius: 50%;
       color: #eff;
+      user-select: none;
     }
 
       .cell{
@@ -113,4 +114,6 @@ body{
       position:absolute;
       border-radius: 50%;
       color: #eff;
+      user-select: none;
+      
     }
